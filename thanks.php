@@ -11,6 +11,33 @@
     // $furigana = htmlspecialchars($_GET['furigana']);
     // $email = htmlspecialchars($_GET['email']);
     // $content = htmlspecialchars($_GET['content']);
+
+    // 1.データベースに接続する
+    // 接続するデータベース情報をかく
+    $dsn = 'mysql:dbname=phpmyprofile;host=localhost';
+
+    // mysqlのサーバーにログイン
+    $user = 'root';
+    $password='';
+
+    // PDO... PHPでデータベース作成接続する際に必要な技(インスタンス)
+    $dbh = new PDO($dsn, $user, $password);
+    $dbh->query('SET NAMES utf8');
+
+    // ２．SQL文を実行する
+  // ・SQL文を用意
+  $sql = 'INSERT INTO `survey`(`name`, `furigana`, `nickname`, `email`, `content`) VALUES ("'. $name.'", "'. $furigana.'", "'. $nickname.'", "'.$email.'", "'.$content.'")';
+  // phpからSQL文を発行する時に使用する関数
+  // -> 「〜の」：アロー演算子
+  // 準備
+  $stmt = $dbh->prepare($sql);
+  // 実行
+  $stmt->execute();
+
+  // phpからSQL文を発行する
+  // ３．データベースを切断する
+  $dbh = null;
+
     ?>
     <!DOCTYPE html>
     <html lang="en">
