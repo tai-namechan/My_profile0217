@@ -9,6 +9,7 @@
     <form action="" method="post">
     <h1>検索ページ</h1>
     <p>検索したいidを入力してください</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat reiciendis saepe, perferendis non, odit ratione doloremque maiores quas adipisci autem consequuntur dolore velit? Enim corporis architecto in molestiae? Suscipit, nulla.</p>
     <input type=" text" name="id">
     <input type="submit" value="検索">
     </form>
